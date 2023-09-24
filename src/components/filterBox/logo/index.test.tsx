@@ -3,18 +3,18 @@ import { LogoDog } from './index'
 
 describe('<LogoDog />', () => {
     const renderLogoDog = () => {
-        return render(<LogoDog />);
+        return render(<LogoDog />)
     }
 
     test('should render component', () => {
-        const { getByRole } = renderLogoDog()
+        renderLogoDog()
         const img = screen.getByRole('img', { name: /dog-logo/i })
         expect(img).toBeInTheDocument()
     })
 
     test('should render text', () => {
-        const { getByText } = renderLogoDog()
-        const textComponent = screen.getByText(/Buscador tu raza/i)
+        renderLogoDog()
+        const textComponent = screen.getByText(/Buscador de razas/i)
         expect(textComponent).toBeInTheDocument()
     })
 })
