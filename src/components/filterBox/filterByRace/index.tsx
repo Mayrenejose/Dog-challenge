@@ -5,12 +5,15 @@ import { Selector } from '../selector/index'
 export const FilterByRace = ({ 
     data,
     selectOption,
+    selectRace,
     setSelectOption,
+    setSelectRace,
     setSelectSubRace 
 }:IFilterByRace ) => {
 
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectOption(event.target.value)
+        setSelectRace(!selectRace)
     }
 
     useEffect(() => {
@@ -28,11 +31,11 @@ export const FilterByRace = ({
     return (
         <div 
             className='shadow-md 
-            bg-indigo-50 
+            bg-gradient-to-r from-sky-200 to-indigo-200 
             rounded-xl 
             flex flex-col 
             items-center 
-            mt-8'
+            mt-3'
         >
             <Selector handleChange={handleChange} value={selectOption}>
                 { data && ( 

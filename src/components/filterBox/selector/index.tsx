@@ -5,7 +5,7 @@ export const Selector = ({
     title = 'Selecciona una raza:',
     value,
     handleChange
-}: ISelector) => {
+}: ISelector ) => {
     return (
         <div className="w-52 mb-28 mt-6">
             <label 

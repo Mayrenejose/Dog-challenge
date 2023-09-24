@@ -4,13 +4,14 @@ import { Selector } from '../selector/index'
 
 export const FilterBySubRace = ({ 
     data, 
-    selectOption 
+    selectOption,
+    subRaceValue,
+    setSubRaceValue 
 }:IFilterBySubRace ) => {
     const[dataSubRace, setDataSubRace] = useState(null)
-    const[value, setValue] = useState('')
 
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setValue(event.target.value)
+        setSubRaceValue(event.target.value)
     }
 
     useEffect(() => {
@@ -26,15 +27,15 @@ export const FilterBySubRace = ({
     return (
         <div 
             className='shadow-md 
-            bg-indigo-50 
+            bg-gradient-to-r from-sky-200 to-indigo-200 
             rounded-xl 
             flex flex-col 
             items-center 
-            mt-10'
+            mt-0'
         >
             <Selector 
                 handleChange={handleChange} 
-                value={value}
+                value={subRaceValue}
                 title='Selecciona una sub-raza:'
             >
                 { dataSubRace && (

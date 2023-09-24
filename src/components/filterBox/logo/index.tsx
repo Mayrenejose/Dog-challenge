@@ -2,17 +2,17 @@ const dog = require('../../../imgs/dog.png')
 
 export const LogoDog = () => {
     return (
-        <div className='
-            shadow-md 
-            bg-indigo-50 
+        <div 
+            className='shadow-md 
+            bg-gradient-to-r from-sky-200 to-indigo-200 
             rounded-xl 
             flex flex-col 
             items-center 
             justify-center 
             mt-4'
         >
-            <div className='
-                w-32 
+            <div 
+                className='w-32 
                 h-32 
                 rounded-full 
                 overflow-hidden 
