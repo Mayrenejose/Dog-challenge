@@ -1,21 +1,24 @@
 import { useEffect } from 'react'
 import { IFilterByRace } from '../../../type'
 import { Selector } from '../selector/index'
+import { OptionsBox } from '../optionsBox'
 
 export const FilterByRace = ({ 
     data,
     selectOption,
-    selectRace,
+    selections,
     setSelectOption,
-    setSelectRace,
-    setSelectSubRace 
+    setSelectSubRace,
+    setSelections 
 }:IFilterByRace ) => {
-
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectOption(event.target.value)
-        setSelectRace(!selectRace)
+        const eventWord = event.target.value
+        if ( selections && !selections.includes(eventWord) ) {
+            setSelections([...selections, eventWord])
+        }
+        setSelectOption(eventWord)
     }
-
+    
     useEffect(() => {
         if( data ){
             const checkSubRace = Object.entries(data.message).filter((item) => item[1].length !== 0)
@@ -34,8 +37,7 @@ export const FilterByRace = ({
             bg-gradient-to-r from-sky-200 to-indigo-200 
             rounded-xl 
             flex flex-col 
-            items-center 
-            mt-3'
+            items-center'
         >
             <Selector handleChange={handleChange} value={selectOption}>
                 { data && ( 
@@ -44,6 +46,8 @@ export const FilterByRace = ({
                     })
                 )}
             </Selector>
+            
+            <OptionsBox armedArray={selections} setSelections={setSelections}/>
         </div>
     )
 }

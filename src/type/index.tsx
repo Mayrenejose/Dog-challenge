@@ -9,15 +9,17 @@ interface IContentData {
 
 export interface IFilterByRace extends IData {
     selectOption?: string;
-    selectRace?: boolean;
+    selections?: string[];
+    setSelections: (selections: string[] | undefined) => void;
     setSelectOption: (selectOption: string) => void;
-    setSelectRace: (selectRace: boolean) => void;
     setSelectSubRace: (selectSubRace: boolean) => void;
 }
 
 export interface IFilterBySubRace extends IData {
+    arraySubRace?: string[];
     selectOption?: string;
     subRaceValue?: string;
+    setArraySubRace: (selections: string[] | undefined) => void;
     setSubRaceValue: (subRaceValue: string) => void;
 }
 
@@ -31,16 +33,26 @@ export interface ISelector {
 export type IHeader = Pick<ISelector, 'title'>
 
 export interface IFilterBox extends IFilterByRace {
+    arraySubRace?: string[];
     selectSubRace?: boolean;
     subRaceValue?: string;
+    setArraySubRace: (selections: string[] | undefined) => void;
     setSubRaceValue: (subRaceValue: string) => void;
 }
 
 export interface IListImage {
-    selectSubRace?: boolean;
-    selectRace?: boolean;
-    subRaceValue?: string;
+    arraySubRace?: string[];
+    selections?: string[];
     selectOption?: string;
+    subRaceValue?: string;
 }
 
-export type IShowImgs = Pick<IListImage, 'selectOption' | 'subRaceValue'>
+export interface ISelectionLabel {
+    selectOption?: string;
+    handleClick?:  () => void;
+}
+
+export interface IOptionsBox {
+    armedArray?: string[];
+    setSelections: (selections: string[] | undefined) => void; 
+}

@@ -1,7 +1,6 @@
-import { IShowImgs } from '../../../type'
+import { IData } from '../../../type'
 
-export const ShowImgs = ({ selectOption, subRaceValue }: IShowImgs) => {
-    
+export const ShowImgs = ({ data }: IData) => {
     return (
         <h1>show</h1>
     )

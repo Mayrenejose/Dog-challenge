@@ -4,15 +4,17 @@ import { FilterByRace } from './filterByRace'
 import { FilterBySubRace } from './filterBySubRace'
 
 export const FilterBox = ({ 
+    arraySubRace,
     data,
+    selections,
     selectOption,
-    selectRace,
     selectSubRace,
     subRaceValue,
+    setArraySubRace,
+    setSelections,
     setSelectOption,
-    setSelectRace,
     setSelectSubRace,
-    setSubRaceValue
+    setSubRaceValue,
 }: IFilterBox) => {
     
     return(
@@ -22,29 +24,32 @@ export const FilterBox = ({
         bg-white 
         shadow-xl 
         flex flex-col 
-        items-center'
+        items-center
+        gap-4'
     >
-        <div className='w-60 h-60'>
+        <div className='w-60 h-auto'>
             <LogoDog />
         </div>
 
-        <div className='w-60 h-60'>
+        <div className='w-60 h-auto'>
             <FilterByRace 
                 data={data}
+                selections={selections}
                 selectOption={selectOption}
-                selectRace={selectRace}
+                setSelections={setSelections}
                 setSelectOption={setSelectOption}
-                setSelectRace={setSelectRace}
                 setSelectSubRace={setSelectSubRace}
             />
         </div>
         
         { selectSubRace && (
-            <div className='w-60 h-60'>
-                <FilterBySubRace 
+            <div className='w-60 h-auto'>
+                <FilterBySubRace
+                    arraySubRace={arraySubRace} 
                     data={data} 
                     selectOption={selectOption}
                     subRaceValue={subRaceValue}
+                    setArraySubRace={setArraySubRace}
                     setSubRaceValue={setSubRaceValue}
                 />
             </div>

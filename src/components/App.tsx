@@ -1,42 +1,44 @@
-import {useState, useEffect} from 'react'
+import {useState } from 'react'
 import { FilterBox } from './filterBox'
 import { ListImgs } from './listImgs'
+import useFetch from '../hooks/useFetch'
 
 function App() {
-  const[data, setData] = useState(null)
   const[selectOption, setSelectOption] = useState('')
   const[subRaceValue, setSubRaceValue] = useState('')
-  const[selectSubRace, setSelectSubRace] = useState(false)
-  const[selectRace, setSelectRace] = useState(false)
+  const[selectSubRace, setSelectSubRace] = useState(false) 
+  console.log(setSelectSubRace);
   
-  useEffect(() => {
-    fetch('https://dog.ceo/api/breeds/list/all')
-      .then(response => { return response.json()})
-      .then(response => setData(response))
-  }, [])
+  const[selections, setSelections] = useState<string[] | undefined>([])
+  const[arraySubRace, setArraySubRace] = useState<string[] | undefined>([])
+  const url = 'https://dog.ceo/api/breeds/list/all'
 
+  const { data } = useFetch(url)
+  
   return (
     <div className='flex'>
       <div className='w-1/4'>
         <FilterBox 
+          arraySubRace={arraySubRace}
           data={data}
-          selectOption={selectOption} 
-          selectRace={selectRace}
-          selectSubRace={selectSubRace}
+          selectOption={selectOption}
+          selectSubRace={selectSubRace} 
+          selections={selections}
           subRaceValue={subRaceValue}
+          setArraySubRace={setArraySubRace}
           setSelectOption={setSelectOption}
-          setSelectRace={setSelectRace}
-          setSelectSubRace={setSelectSubRace}
+          setSelections={setSelections}
+          setSelectSubRace={setSelectSubRace} 
           setSubRaceValue={setSubRaceValue}
         />
       </div>
 
       <div className='w-3/4'>
         <ListImgs
+          arraySubRace={arraySubRace}
+          selections={selections}
           selectOption={selectOption}
           subRaceValue={subRaceValue}
-          selectRace={selectRace} 
-          selectSubRace={selectSubRace}
         />
       </div>
     </div>

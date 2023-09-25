@@ -7,7 +7,7 @@ export const Selector = ({
     handleChange
 }: ISelector ) => {
     return (
-        <div className="w-52 mb-28 mt-6">
+        <div className="w-52 mb-3 mt-6">
             <label 
                 htmlFor='select' 
                 className='block 

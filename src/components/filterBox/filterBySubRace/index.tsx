@@ -1,17 +1,24 @@
 import { useEffect, useState } from 'react'
 import { IFilterBySubRace } from '../../../type'
 import { Selector } from '../selector/index'
+import { OptionsBox } from '../optionsBox'
 
-export const FilterBySubRace = ({ 
+export const FilterBySubRace = ({
+    arraySubRace, 
     data, 
     selectOption,
     subRaceValue,
+    setArraySubRace,
     setSubRaceValue 
 }:IFilterBySubRace ) => {
     const[dataSubRace, setDataSubRace] = useState(null)
 
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        setSubRaceValue(event.target.value)
+        const wordSearch = event.target.value
+        if ( arraySubRace && !arraySubRace.includes(wordSearch) ) {
+            setArraySubRace([...arraySubRace, wordSearch])
+        }
+        setSubRaceValue(wordSearch)
     }
 
     useEffect(() => {
@@ -44,6 +51,8 @@ export const FilterBySubRace = ({
                     })
                 )}
             </Selector>
+            
+            <OptionsBox armedArray={arraySubRace} setSelections={setArraySubRace}/>
         </div>
     )
 }
