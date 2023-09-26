@@ -1,18 +1,15 @@
 import { ListHeader } from './listHeader'
 import { EmptySearch } from './emptySearch'
 import { IListImage } from '../../type'
-import { ShowImgs } from './showImgs'
-import useFetch from '../../hooks/useFetch'
+import { AllImgs } from './allImgs'
 
 export const ListImgs = ({ 
     arraySubRace,
     selections,
     selectOption,
-    subRaceValue 
+    subRaceValue
 }:IListImage) => {
-    const url = `https://dog.ceo/api/breed/${selectOption}/images`
-    const { data } = useFetch(url)
-
+    
     return (
         <div
             className='min-h-min
@@ -31,9 +28,14 @@ export const ListImgs = ({
                     <EmptySearch />
                 </div>
             :
-            <div>
-                <ShowImgs data={data}/>
-            </div>
+                <div>
+                    <AllImgs dataImgs={selections}/>
+                    <AllImgs 
+                        dataImgs={arraySubRace} 
+                        isSubRace={true}
+                        selectOption={selectOption}
+                    />
+                </div>
             }
         </div>
     )

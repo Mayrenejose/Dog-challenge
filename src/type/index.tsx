@@ -2,7 +2,7 @@ export interface IData {
     data: IContentData | null;
 }
 
-interface IContentData {
+export interface IContentData {
     message: object;
     status: string;
 }
@@ -30,8 +30,6 @@ export interface ISelector {
     handleChange?: React.ChangeEventHandler<HTMLSelectElement> | undefined;
 }
 
-export type IHeader = Pick<ISelector, 'title'>
-
 export interface IFilterBox extends IFilterByRace {
     arraySubRace?: string[];
     selectSubRace?: boolean;
@@ -55,4 +53,16 @@ export interface ISelectionLabel {
 export interface IOptionsBox {
     armedArray?: string[];
     setSelections: (selections: string[] | undefined) => void; 
+}
+
+export interface IShowImgs {
+    isSubRace?: boolean;
+    option?: string;
+    selectOption?: string;
+}
+
+export interface IAllImgs {
+    dataImgs: string[] | undefined;
+    isSubRace?: boolean;
+    selectOption?: string;
 }

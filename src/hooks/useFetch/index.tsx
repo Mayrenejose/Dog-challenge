@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
+import { IContentData } from '../../type'
 
 function useFetch( url: string ) {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState<IContentData | null>(null)
     const [loading, setLoading] = useState(true)
     
-
 useEffect(() => {
     const fetchData = async () => {
         try {
@@ -19,8 +19,7 @@ useEffect(() => {
         setLoading(false)
     } catch (error) {
         setLoading(false)
-    }
-    }
+    }}
 
     fetchData()
 }, [url])

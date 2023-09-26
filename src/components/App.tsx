@@ -7,8 +7,6 @@ function App() {
   const[selectOption, setSelectOption] = useState('')
   const[subRaceValue, setSubRaceValue] = useState('')
   const[selectSubRace, setSelectSubRace] = useState(false) 
-  console.log(setSelectSubRace);
-  
   const[selections, setSelections] = useState<string[] | undefined>([])
   const[arraySubRace, setArraySubRace] = useState<string[] | undefined>([])
   const url = 'https://dog.ceo/api/breeds/list/all'
