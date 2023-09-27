@@ -5,7 +5,7 @@ import { SelectionLabel } from "../selectionLabel"
 export const OptionsBox = ({ armedArray, setSelections }: IOptionsBox) => {
     const isMobile = useMobile()
     const boxOptions = isMobile 
-        ? 'w-full h-28 fixed bottom-0 bg-white shadow-xl' 
+        ? 'w-full h-28 bg-white shadow-xl'
         : 'mb-2'
 
     const handleOnClick = (option: string) => {
@@ -19,6 +19,7 @@ export const OptionsBox = ({ armedArray, setSelections }: IOptionsBox) => {
             p-3
             gap-0.5
             flex flex-wrap`} 
+            data-testid='show-selection-label'
         >
             { armedArray && (
                 armedArray.map((option: string, index: number) => {

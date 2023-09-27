@@ -14,6 +14,7 @@ export const SelectionLabel = ({ selectOption, handleClick }: ISelectionLabel) =
             justify-between
             p-1'
             onClick={handleClick}
+            data-testid= 'show-render-selection'
             > 
                 {selectOption}
                 <img 

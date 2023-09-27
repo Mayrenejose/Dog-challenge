@@ -18,7 +18,7 @@ function App() {
   const measurementsContainer = isMobile 
     ? 'fixed top-0 z-50 w-full bg-white pb-4' 
     : 'w-1/4 h-full'
-  const containerListImgs = isMobile ? `p-4 flex justify-center ${marginSubRace} mb-48` : 'w-3/4'
+  const containerListImgs = isMobile ? `p-4 flex justify-center ${marginSubRace} mb-24` : 'w-3/4'
 
   const { data } = useFetch(url)
 

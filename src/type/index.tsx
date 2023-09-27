@@ -51,7 +51,7 @@ export interface ISelectionLabel {
 
 export interface IOptionsBox {
     armedArray?: string[];
-    setSelections: (selections: string[] | undefined) => void; 
+    setSelections: (selections: string[] | undefined) => void ; 
 }
 
 export interface IShowImgs {

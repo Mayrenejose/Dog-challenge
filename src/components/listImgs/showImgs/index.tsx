@@ -25,7 +25,8 @@ export const ShowImgs = ({
             p-5 
             h-64 
             max-h-764
-            overflow-hidden' 
+            overflow-hidden'
+            data-testid='show-imgs-component'
         >
             { dataImg && (
                 Object.entries(dataImg).slice(0, 1).map((key: any, value: number) => {

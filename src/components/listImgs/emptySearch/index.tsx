@@ -6,7 +6,7 @@ export const EmptySearch = () => {
     const classBoxEmpty = isMobile ? '' : 'mt-10 flex flex-col items-center'
 
     return (
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center' data-testid='show-emptySearch'>
             <div className='w-56 h-auto'>
                 <img 
                     alt='dog-logo' 

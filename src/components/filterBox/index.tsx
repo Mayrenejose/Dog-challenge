@@ -60,9 +60,13 @@ export const FilterBox = ({
     
         { isMobile && 
             (selections?.length !== 0 || arraySubRace?.length !== 0) && (
-            <div className='absolute flex flex-col'>
-                <OptionsBox armedArray={arraySubRace} setSelections={setArraySubRace}/>
-                <OptionsBox armedArray={selections} setSelections={setSelections}/>
+            <div className='h-32 flex flex-col fixed bottom-0 w-full'>
+                <div className='h-0'>
+                    <OptionsBox armedArray={selections} setSelections={setSelections}/>
+                </div>
+                <div className='h-0 mt-16'>
+                    <OptionsBox armedArray={arraySubRace} setSelections={setArraySubRace}/>
+                </div>
             </div>
         )
         }
