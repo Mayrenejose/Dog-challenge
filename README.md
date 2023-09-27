@@ -1,8 +1,8 @@
 # Dog-CEO Challenge:
 
-En Dog-CEO pordras cconocer las distintas razas caninas , e incluso las sub razas. [Explorador de razas ¡AQUI!](https://mayrenejose.github.io/Dog-challenge/).
+En Dog-CEO pordras conocer las distintas razas caninas , e incluso las sub razas. [Explorador de razas ¡AQUI!](https://mayrenejose.github.io/Dog-challenge/).
 
-### Arquitectura:
+## Arquitectura:
 
 
 ```
@@ -79,25 +79,25 @@ dog-challenge
 
 ```
 
-### Herramientas utilizadas:
+## Herramientas utilizadas:
 
 - React JS.
 - Typescript.
 - Tailwin CSS.
 - Jest JS.
 
-### Imagenes:
+## Imagenes:
 
-## Version destock:
+### Version destock:
 
 ![img](src/imgs/img-1.png)
 
 ![img](src/imgs/img-2.png)
 
-## Version mobile:
+### Version mobile:
 
-![img](src/imgs/mobile-1.png)
+![img](src/imgs/mobile-1.jpeg)
 
-![img](src/imgs/mobile-2.png)
+![img](src/imgs/mobile-2.jpeg)
 
-![img](src/imgs/mobile-3.png)
+![img](src/imgs/mobile-3.jpeg)
