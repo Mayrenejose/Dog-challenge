@@ -1,3 +1,4 @@
+import useMobile from '../../../hooks/useMobile'
 import { useEffect } from 'react'
 import { IFilterByRace } from '../../../type'
 import { Selector } from '../selector/index'
@@ -11,7 +12,13 @@ export const FilterByRace = ({
     setSelectSubRace,
     setSelections 
 }:IFilterByRace ) => {
+    const isMobile = useMobile()
+    const containerSelect = isMobile
+        ? 'px-4 pt-1' 
+        : 'shadow-md bg-gradient-to-r from-sky-200 to-indigo-200 rounded-xl items-center'
+    
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        event.preventDefault();
         const eventWord = event.target.value
         if ( selections && !selections.includes(eventWord) ) {
             setSelections([...selections, eventWord])
@@ -33,11 +40,9 @@ export const FilterByRace = ({
 
     return (
         <div 
-            className='shadow-md 
-            bg-gradient-to-r from-sky-200 to-indigo-200 
-            rounded-xl 
-            flex flex-col 
-            items-center'
+            className={`${containerSelect}
+            flex 
+            flex-col`}
         >
             <Selector handleChange={handleChange} value={selectOption}>
                 { data && ( 
@@ -46,8 +51,9 @@ export const FilterByRace = ({
                     })
                 )}
             </Selector>
-            
-            <OptionsBox armedArray={selections} setSelections={setSelections}/>
+            { !isMobile && (
+                <OptionsBox armedArray={selections} setSelections={setSelections}/>
+            )}
         </div>
     )
 }

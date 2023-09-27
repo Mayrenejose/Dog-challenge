@@ -1,3 +1,4 @@
+import useMobile from '../../../hooks/useMobile'
 import { ISelector } from '../../../type'
 
 export const Selector = ({ 
@@ -6,13 +7,16 @@ export const Selector = ({
     value,
     handleChange
 }: ISelector ) => {
+    const isMobile = useMobile()
+    const containerSelect = isMobile ? 'sticky w-full' : 'w-52 mb-3 mt-6'
+
     return (
-        <div className="w-52 mb-3 mt-6">
+        <div className={containerSelect}>
             <label 
                 htmlFor='select' 
                 className='block 
                 text-black-700 
-                text-sm 
+                text-lg 
                 font-semibold
                 mb-2'
             >

@@ -1,3 +1,4 @@
+import useMobile from '../../../hooks/useMobile'
 import { useEffect, useState } from 'react'
 import { IFilterBySubRace } from '../../../type'
 import { Selector } from '../selector/index'
@@ -12,6 +13,10 @@ export const FilterBySubRace = ({
     setSubRaceValue 
 }:IFilterBySubRace ) => {
     const[dataSubRace, setDataSubRace] = useState(null)
+    const isMobile = useMobile()
+    const containerSelect = isMobile
+        ? 'px-4 pt-3' 
+        : 'shadow-md bg-gradient-to-r from-sky-200 to-indigo-200 rounded-xl items-center'
 
     const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const wordSearch = event.target.value
@@ -33,12 +38,9 @@ export const FilterBySubRace = ({
 
     return (
         <div 
-            className='shadow-md 
-            bg-gradient-to-r from-sky-200 to-indigo-200 
-            rounded-xl 
-            flex flex-col 
-            items-center 
-            mt-0'
+            className={`${containerSelect}
+            flex 
+            flex-col`}
         >
             <Selector 
                 handleChange={handleChange} 
@@ -51,8 +53,10 @@ export const FilterBySubRace = ({
                     })
                 )}
             </Selector>
-            
-            <OptionsBox armedArray={arraySubRace} setSelections={setArraySubRace}/>
+
+            { !isMobile && (
+                <OptionsBox armedArray={arraySubRace} setSelections={setArraySubRace}/>
+            )}
         </div>
     )
 }

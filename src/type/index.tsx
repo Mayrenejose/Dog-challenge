@@ -42,7 +42,6 @@ export interface IListImage {
     arraySubRace?: string[];
     selections?: string[];
     selectOption?: string;
-    subRaceValue?: string;
 }
 
 export interface ISelectionLabel {

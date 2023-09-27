@@ -14,7 +14,7 @@ describe('<LogoDog />', () => {
 
     test('should render text', () => {
         renderLogoDog()
-        const textComponent = screen.getByText(/Buscador de razas/i)
+        const textComponent = screen.getByText(/Explora razas caninas/i)
         expect(textComponent).toBeInTheDocument()
     })
 })

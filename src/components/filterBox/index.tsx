@@ -1,7 +1,9 @@
+import useMobile from '../../hooks/useMobile'
 import { LogoDog } from './logo'
 import { IFilterBox } from '../../type'
 import { FilterByRace } from './filterByRace'
 import { FilterBySubRace } from './filterBySubRace'
+import { OptionsBox } from './optionsBox'
 
 export const FilterBox = ({ 
     arraySubRace,
@@ -16,22 +18,23 @@ export const FilterBox = ({
     setSelectSubRace,
     setSubRaceValue,
 }: IFilterBox) => {
+    const isMobile = useMobile()
+    const boxFilters = isMobile 
+        ? 'w-full' 
+        : 'w-80 shadow-xl bg-white flex flex-col min-h-screen'
+    const sizeBoxs = isMobile ? 'relative w-full' : 'w-60 h-auto'
     
     return(
-    <div 
-        className='min-h-screen 
-        w-80 
-        bg-white 
-        shadow-xl 
-        flex flex-col 
-        items-center
-        gap-4'
-    >
-        <div className='w-60 h-auto'>
+        <div 
+            className={`${boxFilters}
+            items-center
+            gap-4`}
+        >
+        <div className={sizeBoxs}>
             <LogoDog />
         </div>
 
-        <div className='w-60 h-auto'>
+        <div className={sizeBoxs}>
             <FilterByRace 
                 data={data}
                 selections={selections}
@@ -42,8 +45,8 @@ export const FilterBox = ({
             />
         </div>
         
-        { selectSubRace && (
-            <div className='w-60 h-auto'>
+        { (selectSubRace || arraySubRace?.length !== 0) && (
+            <div className={sizeBoxs}>
                 <FilterBySubRace
                     arraySubRace={arraySubRace} 
                     data={data} 
@@ -54,7 +57,15 @@ export const FilterBox = ({
                 />
             </div>
         )}
-        
-    </div>
+    
+        { isMobile && 
+            (selections?.length !== 0 || arraySubRace?.length !== 0) && (
+            <div className='absolute flex flex-col'>
+                <OptionsBox armedArray={arraySubRace} setSelections={setArraySubRace}/>
+                <OptionsBox armedArray={selections} setSelections={setSelections}/>
+            </div>
+        )
+        }
+        </div>
     )
 }
