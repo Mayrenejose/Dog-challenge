@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Dog-challenge/static/css/main.4963e17d.css",
-    "main.js": "/Dog-challenge/static/js/main.179cec6b.js",
+    "main.css": "/Dog-challenge/static/css/main.09426ce3.css",
+    "main.js": "/Dog-challenge/static/js/main.ef3b74c6.js",
     "static/media/pets.png": "/Dog-challenge/static/media/pets.5b87ce953a519b05c87b.png",
     "static/media/dog.png": "/Dog-challenge/static/media/dog.f883c47f2b9f8a73a7a4.png",
     "index.html": "/Dog-challenge/index.html",
-    "main.4963e17d.css.map": "/Dog-challenge/static/css/main.4963e17d.css.map",
-    "main.179cec6b.js.map": "/Dog-challenge/static/js/main.179cec6b.js.map"
+    "main.09426ce3.css.map": "/Dog-challenge/static/css/main.09426ce3.css.map",
+    "main.ef3b74c6.js.map": "/Dog-challenge/static/js/main.ef3b74c6.js.map"
   },
   "entrypoints": [
-    "static/css/main.4963e17d.css",
-    "static/js/main.179cec6b.js"
+    "static/css/main.09426ce3.css",
+    "static/js/main.ef3b74c6.js"
   ]
 }
